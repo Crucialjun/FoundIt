@@ -15,7 +15,7 @@ class OnboardingActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnGetStarted.setOnClickListener {
-            val intent  = Intent(this,MainActivity::class.java)
+            val intent  = Intent(this,AuthActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()

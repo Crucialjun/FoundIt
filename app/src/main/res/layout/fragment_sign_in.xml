@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    android:background="@android:color/white"
+    tools:context=".SigninFragment">
 
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:id="@+id/lottieAnimationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:src="@drawable/sign_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/login">
+       >
 
-    </com.airbnb.lottie.LottieAnimationView>
+    </ImageView>
 
     <TextView
         android:id="@+id/textView3"
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/lato_black_italic"
+        android:textColor="@android:color/black"
         android:text="Login and let's find it"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -45,7 +46,9 @@
         app:icon="@drawable/google_svg"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
+        android:textColor="@android:color/white"
         app:cornerRadius="8dp"
+        android:backgroundTint="@android:color/holo_red_dark"
         app:layout_constraintEnd_toStartOf="@+id/materialButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -54,8 +57,10 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/materialButton"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:paddingTop="8dp"
@@ -72,7 +77,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Or use email"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialButton2">
