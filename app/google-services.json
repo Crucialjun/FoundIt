@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "733567715373",
+    "project_id": "foundit-d27d8",
+    "storage_bucket": "foundit-d27d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733567715373:android:95da1c42dda12e254e90a4",
+        "android_client_info": {
+          "package_name": "com.crucialtech.foundit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733567715373-obp7b5jel2diug1l8dteab284drlgcoo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCraw4c-Ux6fb76KMf0pkyztdOae89YnnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733567715373-obp7b5jel2diug1l8dteab284drlgcoo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
