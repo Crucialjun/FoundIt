@@ -12,6 +12,9 @@
         android:theme="@style/Theme.FoundIt"
         tools:targetApi="31">
         <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".OnboardingActivity"
             android:exported="true">
             <intent-filter>

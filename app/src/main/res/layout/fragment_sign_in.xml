@@ -156,7 +156,7 @@
         android:layout_marginBottom="16dp"
         android:text="Dont have an account? "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintEnd_toStartOf="@+id/txt_toregister"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent">
@@ -164,12 +164,13 @@
     </TextView>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txt_toregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Register now"
         android:textColor="@color/black"
+        android:clickable="true"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
