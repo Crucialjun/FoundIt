@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SignInFragment"
-        android:name="com.crucialtech.foundit.SigninFragment"
+        android:name="com.crucialtech.foundit.views.SigninFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_sign_in">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SignUpFragment"
-        android:name="com.crucialtech.foundit.Signupfragment"
+        android:name="com.crucialtech.foundit.views.Signupfragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_sign_up">
 

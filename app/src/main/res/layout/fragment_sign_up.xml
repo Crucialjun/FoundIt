@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".SigninFragment">
+    tools:context=".views.SigninFragment">
 
     <ImageView
         android:id="@+id/lottieAnimationView"
@@ -33,13 +33,13 @@
         android:textColor="@android:color/black"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_google_signup"
         app:layout_constraintStart_toStartOf="parent">
 
     </TextView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton2"
+        android:id="@+id/btn_google_signup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/materialButton2" />
+        app:layout_constraintStart_toEndOf="@+id/btn_google_signup" />
 
     <TextView
         android:id="@+id/textView4"

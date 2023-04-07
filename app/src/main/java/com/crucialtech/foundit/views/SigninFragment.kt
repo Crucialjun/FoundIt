@@ -1,4 +1,4 @@
-package com.crucialtech.foundit
+package com.crucialtech.foundit.views
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.crucialtech.foundit.R
 
 import com.crucialtech.foundit.databinding.FragmentSignInBinding
 
