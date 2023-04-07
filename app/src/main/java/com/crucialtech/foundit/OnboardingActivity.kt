@@ -3,6 +3,7 @@ package com.crucialtech.foundit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.crucialtech.foundit.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
@@ -10,6 +11,7 @@ class OnboardingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOnboardingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //window.statusBarColor = ContextCompat.getColor(this,R.color.white)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
