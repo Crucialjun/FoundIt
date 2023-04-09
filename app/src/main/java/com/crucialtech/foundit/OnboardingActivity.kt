@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.crucialtech.foundit.databinding.ActivityOnboardingBinding
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 
 class OnboardingActivity : AppCompatActivity() {
 

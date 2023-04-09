@@ -43,4 +43,11 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+
+    <string name="facebook_app_id">3061855197441331</string>
+    <string name="fb_login_protocol_scheme">fb3061855197441331</string>
+    <string name="facebook_client_token">b02880c4aedac7ba1e7de0f28933b571</string>
+
+
 </resources>
