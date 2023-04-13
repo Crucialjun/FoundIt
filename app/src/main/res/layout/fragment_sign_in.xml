@@ -136,7 +136,7 @@
         app:boxCornerRadiusTopStart="12dp"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:startIconDrawable="@drawable/outline_lock_24">
@@ -182,7 +182,7 @@
     </TextView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton4"
+        android:id="@+id/btn_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"

@@ -39,6 +39,10 @@ class SigninFragment : Fragment() {
             Log.d("TAG : SignInFragment", "onViewCreated: To register button clicked")
             it.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+        binding.btnSignin.setOnClickListener {
+            it.findNavController().navigate(R.id.action_SignInFragment_to_homeActivity)
+        }
+
 
     }
 

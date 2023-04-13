@@ -14,6 +14,12 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SignUpFragment" />
+        <action
+            android:id="@+id/action_SignInFragment_to_nav_graph2"
+            app:destination="@id/nav_graph2" />
+        <action
+            android:id="@+id/action_SignInFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
     <fragment
         android:id="@+id/SignUpFragment"
@@ -25,4 +31,10 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/SignInFragment" />
     </fragment>
+    <include app:graph="@navigation/nav_graph2" />
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.crucialtech.foundit.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
 </navigation>

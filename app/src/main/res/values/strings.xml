@@ -48,6 +48,10 @@
     <string name="facebook_app_id">3061855197441331</string>
     <string name="fb_login_protocol_scheme">fb3061855197441331</string>
     <string name="facebook_client_token">b02880c4aedac7ba1e7de0f28933b571</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
 </resources>
