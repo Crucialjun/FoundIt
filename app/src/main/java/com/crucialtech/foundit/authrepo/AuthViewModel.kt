@@ -1,5 +1,6 @@
 package com.crucialtech.foundit.authrepo
 
+import android.app.Application
 import android.content.Context
 import android.content.IntentSender
 import androidx.fragment.app.FragmentActivity
@@ -9,20 +10,30 @@ import com.crucialtech.foundit.SignInResult
 import com.crucialtech.foundit.repository.AuthRepo
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.identity.Identity
+import com.google.android.gms.auth.api.identity.SignInClient
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
-class AuthViewModel(private val authRepository: AuthRepo) :ViewModel() {
+@HiltViewModel
 
-fun refreshToken(){
+class AuthViewModel @Inject constructor(private val authRepository:AuthRepo) :ViewModel() {
+
+
+
+    fun refreshToken(){
     authRepository.refreshToken()
 }
 
+    suspend fun signUpWithGoogle(oneTapClient: SignInClient, context: Context): IntentSender? {
+        return authRepository.signUpWithGoogleIntent(oneTapClient,context)
+    }
 
-    data class SignUpResultState(
-        val isSuccess: Boolean = false,
-        val signError: String? = null
-    )
+    suspend fun signinwithCredential(token : String?){
+        authRepository.signInWithCredential(token)
+    }
+
 
 }

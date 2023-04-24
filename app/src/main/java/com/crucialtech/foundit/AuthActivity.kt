@@ -12,7 +12,10 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import com.crucialtech.foundit.databinding.ActivityAuthenticationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 
 class AuthActivity : AppCompatActivity() {
 

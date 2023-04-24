@@ -14,6 +14,7 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.registerForActivityResult
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -27,6 +28,7 @@ import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import kotlin.contracts.contract
@@ -34,19 +36,20 @@ import kotlin.contracts.contract
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+@AndroidEntryPoint
 class Signupfragment : Fragment() {
 
-    private lateinit var authViewModel: AuthViewModel
+    private  val authViewModel by viewModels<AuthViewModel>()
     private var _binding: FragmentSignUpBinding? = null
 
     private lateinit var oneTapClient: SignInClient
-    private lateinit var signInRequest: BeginSignInRequest
-    private lateinit var signUpRequest: BeginSignInRequest
 
     private val activityLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()){result ->
         val credential = oneTapClient.getSignInCredentialFromIntent(result.data)
         val idToken = credential.googleIdToken
-        FirebaseAuth.getInstance().signInWithCredential(GoogleAuthProvider.getCredential(idToken,null))
+        lifecycleScope.launch{
+            authViewModel.signinwithCredential(idToken)
+        }
     }
 
 
@@ -67,21 +70,8 @@ class Signupfragment : Fragment() {
         _binding = FragmentSignUpBinding.inflate(inflater, container, false)
 
         oneTapClient = Identity.getSignInClient(requireActivity())
+        //authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
-        signUpRequest = BeginSignInRequest.builder()
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder().setSupported(true)
-                    .setServerClientId(getString(R.string.default_web_client_id))
-                    .setFilterByAuthorizedAccounts(false).build()
-            ).build()
-
-        signInRequest = BeginSignInRequest.builder().setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder().setSupported(true).build())
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder().setSupported(true)
-                    .setServerClientId(getString(R.string.default_web_client_id))
-                    .setFilterByAuthorizedAccounts(false)
-                    .build()
-            ).setAutoSelectEnabled(true).build()
 
 
         binding.txtToSignIn.setOnClickListener {
@@ -93,14 +83,11 @@ class Signupfragment : Fragment() {
         binding.btnGoogleSignup.setOnClickListener {
             Log.d("TAG", "onViewCreated:tapped ")
 
-            oneTapClient.beginSignIn(signUpRequest).addOnSuccessListener {
-                try {
-                    activityLauncher.launch(IntentSenderRequest.Builder(it.pendingIntent.intentSender).build())
-
-                }catch (e:Exception){
-                    Log.d("TAG", "onViewCreated: Exception ${e.localizedMessage}")
-                }
+            lifecycleScope.launch {
+                activityLauncher.launch(IntentSenderRequest.Builder(authViewModel.signUpWithGoogle(oneTapClient,requireContext())!!).build())
             }
+
+
         }
 
         return binding.root
