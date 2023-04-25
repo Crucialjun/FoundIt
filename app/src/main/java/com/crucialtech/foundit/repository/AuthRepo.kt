@@ -28,13 +28,7 @@ import java.util.concurrent.CancellationException
 class AuthRepo(
 ) {
 
-
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
-
-
-
-
-
     private lateinit var signInRequest: BeginSignInRequest
     private lateinit var signUpRequest: BeginSignInRequest
 
@@ -88,6 +82,10 @@ class AuthRepo(
             null
         }
         return result?.pendingIntent?.intentSender;
+
+    }
+
+    suspend fun  loginWithFacebook(){
 
     }
 
