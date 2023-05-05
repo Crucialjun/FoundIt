@@ -37,7 +37,7 @@
         <activity
             android:name=".AuthActivity"
             android:exported="true"
-            android:theme="@style/Theme.FoundIt"></activity>
+            android:theme="@style/Theme.FoundIt" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />

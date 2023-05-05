@@ -22,6 +22,11 @@ import com.crucialtech.foundit.R
 import com.crucialtech.foundit.authrepo.AuthViewModel
 import com.crucialtech.foundit.databinding.FragmentSignUpBinding
 import com.crucialtech.foundit.repository.AuthRepo
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
@@ -42,7 +47,10 @@ class Signupfragment : Fragment() {
     private  val authViewModel by viewModels<AuthViewModel>()
     private var _binding: FragmentSignUpBinding? = null
 
+
     private lateinit var oneTapClient: SignInClient
+
+    private val callbackManager = CallbackManager.Factory.create()
 
     private val activityLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()){result ->
         val credential = oneTapClient.getSignInCredentialFromIntent(result.data)
@@ -51,6 +59,16 @@ class Signupfragment : Fragment() {
             authViewModel.signinwithCredential(idToken)
         }
     }
+
+
+
+
+
+
+
+
+
+
 
 
     // This property is only valid between onCreateView and
@@ -72,6 +90,22 @@ class Signupfragment : Fragment() {
         oneTapClient = Identity.getSignInClient(requireActivity())
         //authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
+        LoginManager.getInstance().registerCallback(
+            callbackManager,object : FacebookCallback<LoginResult>{
+                override fun onCancel() {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onError(error: FacebookException) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onSuccess(result: LoginResult) {
+                    authViewModel.signInWithFacebookCredential(result.accessToken)
+                }
+
+            }
+        )
 
 
         binding.txtToSignIn.setOnClickListener {
@@ -87,6 +121,11 @@ class Signupfragment : Fragment() {
                 activityLauncher.launch(IntentSenderRequest.Builder(authViewModel.signUpWithGoogle(oneTapClient,requireContext())!!).build())
             }
 
+
+        }
+
+        binding.btnFacebookSignUp.setOnClickListener {
+            LoginManager.getInstance().logInWithReadPermissions(this@Signupfragment ,listOf("email","public_profile"))
 
         }
 

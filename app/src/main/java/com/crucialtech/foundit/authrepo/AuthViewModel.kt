@@ -1,5 +1,6 @@
 package com.crucialtech.foundit.authrepo
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.IntentSender
@@ -8,6 +9,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.crucialtech.foundit.SignInResult
 import com.crucialtech.foundit.repository.AuthRepo
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
@@ -23,6 +26,7 @@ class AuthViewModel @Inject constructor(private val authRepository:AuthRepo) :Vi
 
 
 
+
     fun refreshToken(){
     authRepository.refreshToken()
 }
@@ -32,7 +36,11 @@ class AuthViewModel @Inject constructor(private val authRepository:AuthRepo) :Vi
     }
 
     suspend fun signinwithCredential(token : String?){
-        authRepository.signInWithCredential(token)
+        authRepository.signInWithGoogleCredential(token)
+    }
+
+     fun signInWithFacebookCredential(token: AccessToken){
+        authRepository.signInFacebookCredential(token)
     }
 
 
