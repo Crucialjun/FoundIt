@@ -60,6 +60,10 @@ class Signupfragment : Fragment() {
         }
     }
 
+    private val facebookResult = registerForActivityResult((ActivityResultContracts.StartActivityForResult())){
+        callbackManager.onActivityResult(RESULT_OK,RESULT_OK,it.data)
+
+    }
 
 
 
@@ -97,10 +101,11 @@ class Signupfragment : Fragment() {
                 }
 
                 override fun onError(error: FacebookException) {
-                    TODO("Not yet implemented")
+                    Log.d("Facebook Auth", "onError: Facebook auth error")
                 }
 
                 override fun onSuccess(result: LoginResult) {
+                    Log.d("Facebook Auth", "onError: Facebook auth success")
                     authViewModel.signInWithFacebookCredential(result.accessToken)
                 }
 
@@ -118,14 +123,24 @@ class Signupfragment : Fragment() {
             Log.d("TAG", "onViewCreated:tapped ")
 
             lifecycleScope.launch {
-                activityLauncher.launch(IntentSenderRequest.Builder(authViewModel.signUpWithGoogle(oneTapClient,requireContext())!!).build())
+                activityLauncher.launch(
+
+                    //add result code
+
+                    IntentSenderRequest.Builder(authViewModel.signUpWithGoogle(oneTapClient,requireContext())!!)
+                    .build())
             }
 
 
         }
 
         binding.btnFacebookSignUp.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this@Signupfragment ,listOf("email","public_profile"))
+            facebookResult.launch(
+                IntentSenderRequest.Builder(
+                    LoginManager.getInstance().logInWithReadPermissions(this@Signupfragment ,listOf("email","public_profile")
+                )).build()
+            )
+
 
         }
 
