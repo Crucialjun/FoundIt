@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/SignUpFragment"
-        android:name="com.crucialtech.foundit.views.Signupfragment"
+        android:name="com.crucialtech.foundit.views.SignupFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_sign_up">
 

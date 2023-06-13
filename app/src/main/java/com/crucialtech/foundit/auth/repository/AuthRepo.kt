@@ -1,4 +1,4 @@
-package com.crucialtech.foundit.repository
+package com.crucialtech.foundit.auth.repository
 
 
 import android.app.Activity
@@ -96,44 +96,11 @@ class AuthRepo(
         return result?.pendingIntent?.intentSender;
 
     }
-
-    suspend fun  loginWithFacebookIntent(activity: Activity){
-        LoginManager.getInstance().logInWithReadPermissions(activity, listOf("email","public_profile"))
-        LoginManager.getInstance().registerCallback(callbackManager,object:FacebookCallback<LoginResult>{
-            override fun onCancel() {
-                TODO("Not yet implemented")
-            }
-
-            override fun onError(error: FacebookException) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onSuccess(result: LoginResult) {
-                signInFacebookCredential(result.accessToken)
-            }
-
-        })
-
-    }
-
-    suspend fun signInWithGoogleCredential(token: String?){
+    fun signInWithGoogleCredential(token: String?){
         auth.signInWithCredential(GoogleAuthProvider.getCredential(token,null))
     }
 
-     fun signInFacebookCredential(token: AccessToken){
-        auth.signInWithCredential(FacebookAuthProvider.getCredential(token.token)).addOnCompleteListener {
-            if (it.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
-                Log.d("TAG", "signInWithCredential:success")
-                val user = auth.currentUser
 
-            } else {
-                // If sign in fails, display a message to the user.
-                Log.w("TAG", "signInWithCredential:failure", it.exception)
-
-            }
-        }
-    }
 
 
 

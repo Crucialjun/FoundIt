@@ -1,6 +1,6 @@
 package com.crucialtech.foundit.di
 
-import com.crucialtech.foundit.repository.AuthRepo
+import com.crucialtech.foundit.auth.repository.AuthRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ object AppModule {
 object  AuthModule{
 
     @Provides
-    fun provideAuthRepo() : AuthRepo{
+    fun provideAuthRepo() : AuthRepo {
         return AuthRepo()
     }
 }

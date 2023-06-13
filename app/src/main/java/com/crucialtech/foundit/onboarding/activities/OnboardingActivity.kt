@@ -1,12 +1,10 @@
-package com.crucialtech.foundit
+package com.crucialtech.foundit.onboarding.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContextCompat
+import com.crucialtech.foundit.auth.activities.AuthActivity
 import com.crucialtech.foundit.databinding.ActivityOnboardingBinding
-import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsLogger
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -19,7 +17,7 @@ class OnboardingActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnGetStarted.setOnClickListener {
-            val intent  = Intent(this,AuthActivity::class.java)
+            val intent  = Intent(this, AuthActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()
