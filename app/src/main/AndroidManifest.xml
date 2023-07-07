@@ -25,7 +25,7 @@
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.FoundIt.NoActionBar" />
         <activity
-            android:name=".DashboardActivity"
+            android:name=".dashboard.DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".onboarding.activities.OnboardingActivity"

@@ -1,43 +1,21 @@
 package com.crucialtech.foundit.auth.repository
 
 
-import android.app.Activity
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.content.IntentSender
 import android.util.Log
-import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.crucialtech.foundit.R
-import com.crucialtech.foundit.SignInResult
 import com.crucialtech.foundit.UserData
-import com.facebook.AccessToken
+import com.crucialtech.foundit.models.AppUser
 import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.Login
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
-import com.google.android.gms.auth.api.identity.BeginSignInResult
-import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
-import com.google.firebase.auth.FacebookAuthCredential
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
-import java.lang.Exception
 import java.util.concurrent.CancellationException
 
-class AuthRepo(
-) {
+class AuthRepo {
 
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     private lateinit var signInRequest: BeginSignInRequest
@@ -65,6 +43,7 @@ class AuthRepo(
 
         val result = try {
             oneTapClient.beginSignIn(signUpRequest).await()
+
         }catch(e : Exception){
             if(e is CancellationException){
                 Log.d("TAG", "signUpWithGoogleIntent: error is ${e.localizedMessage}")
@@ -97,7 +76,30 @@ class AuthRepo(
 
     }
     fun signInWithGoogleCredential(token: String?){
-        auth.signInWithCredential(GoogleAuthProvider.getCredential(token,null))
+        auth.signInWithCredential(GoogleAuthProvider.getCredential(token,null)).addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                val user = task.result?.user
+
+                val appUser = AppUser(
+                    email = user?.email ?: "",
+                    uid = user?.uid ?: "",
+                    name = user?.displayName ?: "",
+                    phone = user?.phoneNumber ?: "",
+                    profileImgUrl = user?.photoUrl.toString(),
+                    username = user?.displayName ?: ""
+                )
+
+                DatabaseRepo().addUserToDatabase(appUser)
+
+
+                Log.d("TAG", "signInWithGoogleCredential: success")
+            }else{
+                Log.d("TAG", "signInWithGoogleCredential: failed")
+            }
+        }
+
+
+
     }
 
 

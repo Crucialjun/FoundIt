@@ -42,21 +42,39 @@
         android:id="@+id/btn_google_signup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@android:color/holo_red_dark"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:text="Google"
         android:textColor="@android:color/white"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/google_svg"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/btn_facebook_signup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_facebook_signup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="Facebook"
+        android:textColor="@android:color/white"
         app:cornerRadius="8dp"
         app:icon="@drawable/google_svg"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_google_signup" />
 
     <TextView
         android:id="@+id/textView4"
@@ -81,12 +99,12 @@
         android:layout_marginBottom="16dp"
         android:hint="Email"
         app:boxBackgroundColor="#d9d5d4"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_password_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -194,11 +212,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:text="Register Account"
         android:textStyle="bold"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        android:backgroundTint="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -233,7 +251,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView6">
 
     </TextView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

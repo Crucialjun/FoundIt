@@ -19,8 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/happy">
+        app:lottie_rawRes="@raw/hello">
 
     </com.airbnb.lottie.LottieAnimationView>
 
@@ -29,10 +28,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:fontFamily="@font/lato_black_italic"
+        android:fontFamily="@font/poppins_bold"
         android:text="Welcome to Foundit"
         android:textColor="@android:color/black"
-        android:textSize="42sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +46,9 @@
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/lato"
         android:text="Reunite with your lost items"
-        android:textColor="@android:color/black"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_get_started"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

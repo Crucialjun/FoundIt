@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import com.crucialtech.foundit.R
 import com.crucialtech.foundit.viewmodel.AuthViewModel
 import com.crucialtech.foundit.databinding.FragmentSignUpBinding
+import com.crucialtech.foundit.models.AppUser
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +31,7 @@ class SignupFragment : Fragment() {
     private lateinit var oneTapClient: SignInClient
     private val activityLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()){result ->
         val credential = oneTapClient.getSignInCredentialFromIntent(result.data)
+
         val idToken = credential.googleIdToken
         lifecycleScope.launch{
             authViewModel.signinwithCredential(idToken)
