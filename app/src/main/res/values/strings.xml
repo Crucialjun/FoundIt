@@ -54,6 +54,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="users_database_table">Users</string>
+    <string name="welcome_to_foundit">Welcome to Foundit</string>
+    <string name="get_started">Get Started</string>
 
 
 </resources>

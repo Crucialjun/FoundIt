@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="Or use email"
-        android:textColor="@color/black"
+
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txt_username_signin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -243,7 +243,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Sign In "
-        android:textColor="@color/black"
+
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

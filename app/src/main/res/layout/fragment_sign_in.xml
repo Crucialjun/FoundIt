@@ -83,7 +83,7 @@
         android:layout_marginBottom="24dp"
         android:text="Or use email"
         android:textStyle="bold"
-        android:textColor="@color/black"
+
         app:layout_constraintBottom_toTopOf="@+id/txt_email_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -171,7 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Register now"
-        android:textColor="@color/black"
+
         android:clickable="true"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
